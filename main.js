@@ -1,9 +1,8 @@
-const moves = [
-    [2, 1], [2, -1], [-2, 1], [-2, -1],
-    [1, 2], [1, -2], [-1, 2], [-1, -2] ];
-
-
 function getKnightMoves([x, y]) {
+    const moves = [
+        [2, 1], [2, -1], [-2, 1], [-2, -1],
+        [1, 2], [1, -2], [-1, 2], [-1, -2] ];
+
     return moves
         .map(([dx, dy]) => [x+ dx, y+dy])
         .filter(isValidPosition);
@@ -20,6 +19,8 @@ function knightTravails (start, end) {
         const current = path[path.length - 1];
 
         if (current.toString() === end.toString()) {
+            console.log(`Path found: ${path}`);
+            console.log(`Number of moves: ${path.length - 1}`);
             return path;
         }
 
@@ -40,3 +41,5 @@ function isValidPosition(array){
     }
     return false;
 }
+
+knightTravails([0, 0], [4, 7]); // Example usage
